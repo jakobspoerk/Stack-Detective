@@ -15,12 +15,13 @@
  */
 package com.markatta.stackdetective.parse;
 
-import com.markatta.stackdetective.model.Entry;
-import com.markatta.stackdetective.model.StackTrace;
-import com.markatta.stackdetective.model.Segment;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+
+import com.markatta.stackdetective.model.Entry;
+import com.markatta.stackdetective.model.Segment;
+import com.markatta.stackdetective.model.StackTrace;
 
 /**
  * <p>
@@ -69,7 +70,9 @@ public final class NaiveTextParser implements StackTraceTextParser {
             if (!current.startsWith("at") && seenAnAtYet) {
                 Segment segment = parseTraceSegment(builder);
                 if (segment != null) {
-                    if (builder.toString().startsWith("Caused:")) {
+                    if ( builder.toString()
+                                .startsWith( "Caused" ) )
+                    {
                         // some stack traces go backwards
                         segments.add(segment);
                     } else {

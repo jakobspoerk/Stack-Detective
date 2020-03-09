@@ -15,13 +15,13 @@
  */
 package com.markatta.stackdetective.render;
 
-import com.markatta.stackdetective.model.Entry;
-import com.markatta.stackdetective.model.StackTrace;
-import com.markatta.stackdetective.model.Segment;
-import com.markatta.stackdetective.filter.EntryFilter;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
+
+import com.markatta.stackdetective.filter.EntryFilter;
+import com.markatta.stackdetective.model.Entry;
+import com.markatta.stackdetective.model.Segment;
+import com.markatta.stackdetective.model.StackTrace;
 
 /**
  * Contains hooks for rendering the various parts of the stack trace. 
@@ -45,8 +45,6 @@ public abstract class AbstractStackTraceRenderer implements StackTraceRenderer {
         for (int segmentIndex = 0; segmentIndex < stackTrace.getSegments().size(); segmentIndex++) {
 
             renderSegment(stackTrace, segmentIndex, builder, ignoredEntries);
-            
-            segmentIndex++;
         }
 
         renderPostTrace(builder, stackTrace);
