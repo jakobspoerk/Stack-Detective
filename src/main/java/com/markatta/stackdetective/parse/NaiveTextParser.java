@@ -103,7 +103,9 @@ public final class NaiveTextParser implements StackTraceTextParser {
         // segment
         Segment segment = parseTraceSegment(builder);
         if (segment != null) {
-            if (builder.toString().startsWith("Caused:")) {
+            if ( builder.toString()
+                        .startsWith( "Caused" ) )
+            {
                 // some stack traces go backwards
                 segments.add(segment);
             } else {
